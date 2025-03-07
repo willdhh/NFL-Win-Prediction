@@ -3,7 +3,6 @@ import glob
 import os
 from sklearn.preprocessing import StandardScaler
 import numpy as np
-
 import matplotlib.pyplot as plt
 
 
@@ -149,7 +148,7 @@ def bet_advised(row):
             return 0  # No bet advised if spread is not covered
 
 # Apply the function to create the 'bet_advised' column
-spread_df['bet_advised'] = spread_df.apply(bet_advised, axis=1)
+spread_df['bet_advised'], spread_df['win'] = spread_df.apply(bet_advised, axis=1)
 columns_to_drop = [
     'schedule_date', 'schedule_playoff', 'stadium_neutral', 'weather_temperature',
     'weather_wind_mph', 'weather_humidity', 'weather_detail', 'over_under_line'
